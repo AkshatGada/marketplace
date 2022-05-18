@@ -28,7 +28,7 @@ class App extends Component {
 
   async loadBlockchainData() {
     const web3 = window.web3
-    // Load account
+   
     const accounts = await web3.eth.getAccounts()
     this.setState({ account: accounts[0] })
     const networkId = await web3.eth.net.getId()
@@ -38,7 +38,7 @@ class App extends Component {
       this.setState({ marketplace })
       const productCount = await marketplace.methods.productCount().call()
       this.setState({ productCount })
-      // Load products
+      
       for (var i = 1; i <= productCount; i++) {
         const product = await marketplace.methods.products(i).call()
         this.setState({
